@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import 'video-react/dist/video-react.css'; // importe les styles video-react
+import Localisation from "./components/map/Localisation";
+import Home from "./components/pages/Home";
+import ChartJS from "./components/chart/ChartJS";
+import Connexion from "./components/pages/Connexion";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={< Connexion />} />
+        <Route path="/home" element={< Home />} />
+        <Route path="/map" element={< Localisation />} />        
+        <Route path="/analytics" element={< ChartJS />} />
+        
+      </Routes>
+    </Router>
   );
 }
-
 export default App;
